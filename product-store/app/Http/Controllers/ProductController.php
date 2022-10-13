@@ -13,7 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = \App\Models\Product::all();
+        return view('viewproducts', ['allProducts' => $products]);
+
     }
 
     /**
@@ -23,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('createproduct');
     }
 
     /**
@@ -34,7 +36,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\Models\Product::create([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'price' => $request->get('price'),
+            'count' => $request->get('count'),
+        ]);
     }
 
     /**
