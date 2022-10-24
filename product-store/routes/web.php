@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TasksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/products', ProductController::class);
+//Route::get('/products', ProductController::class);
+
+
+Route::get('/tasks/show/{id}', [TasksController::class, 'show']);
+
+Route::get('/tasks/store', function () {
+    return view('tasks.store');
+});
+
+//Route::view('tasks/store', 'tasks.store');  //same as previous
+
+Route::post('/tasks/store', [TasksController::class, 'store']);
