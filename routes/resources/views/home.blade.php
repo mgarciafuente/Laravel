@@ -8,5 +8,7 @@
 </head>
 <body>
     <h1>Home</h1>
+    <a href="{{ config('app.url') }}/contact">Contact</a>
+    <a href="{{ route('home.contact') }}">Contact</a>  
 </body>
 </html>

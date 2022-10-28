@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +14,9 @@
 */
 
 Route::get('/', function () {
-    return view('home.index');
-});
+    return view('home');
+})->name('home.index');
 
-Route::view('/contacto', 'home.contacto');
-Route::view('/recent-posts/{days ago}', 'posts.recientes.index');
-Route::view('/posts/{id}', 'posts.show-posts');
+Route::view('/contact', 'contact')->name('home.contact');
+Route::view('/recent-posts/{days_ago}', 'recent-posts')->name('posts.recientes.index');
+Route::view('/posts/{id}', 'posts')->name('posts.show');

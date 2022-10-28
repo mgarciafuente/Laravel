@@ -7,6 +7,11 @@
     <title>Posts</title>
 </head>
 <body>
-    <h1>{{$id}}</h1>
+    <h1>Posts</h1>
+    @if (strlen($id) == 1)
+        <h2>Id: {{$id}}</h2>
+    @else
+        <h2>Invalid id</h2>
+    @endif
 </body>
 </html>
