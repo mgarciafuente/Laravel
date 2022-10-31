@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Anonymous</h1>
-    
+    <h2>Variable: {{$variable}}</h2>
 </body>
 </html>
