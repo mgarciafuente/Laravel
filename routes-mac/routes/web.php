@@ -30,10 +30,18 @@ Route::view('/posts/{id}', 'posts')->name('posts.show'); */
 
 // Routes with controllers
 
-/* Route::get('/', [MainController::class, 'index'])->name('posts');
-Route::get('/contact', [MainController::class, 'contact'])->name('posts');
+/* Route::get('/', [MainController::class, 'index'])->name('home.index');
+Route::get('/contact', [MainController::class, 'contact'])->name('home.contact');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts');
 Route::get('recent-posts/{days-ago}', [PostController::class, 'showRecent'])->name('recent-posts'); */
+
+
+// Routes grouped by name
+
+/* Route::name('home.')->group(function () {
+    Route::get('/', [MainController::class, 'index'])->name('index');
+    Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+}); */
 
 
 // Routes grouped by controllers
@@ -47,6 +55,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/posts/{id}', 'show')->name('posts');
     Route::get('/recent-posts/{days_ago}', 'showRecent')->name('recent-posts');
 });
+
 
 // Views exercise
 
