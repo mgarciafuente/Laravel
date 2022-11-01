@@ -9,7 +9,7 @@
         <div class="main">
             <div class="cont2">
                 <h2>Hello {{ $name }} {{ $lastname }}</h2>
-                <form name="login" action="{{ route('main') }}" method="post">
+                <form name="login" action="{{ route('form.main') }}" method="post">
                     @csrf
                     <input type="number" name="age" placeholder="Age" value="{{ old('age') }}" @if ($errors->has('age')) class="error" @endif>
                     <input type="hidden" name="name" value="{{ $name }}">

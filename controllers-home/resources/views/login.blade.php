@@ -8,7 +8,7 @@
         @include('includes.header')
         <div class="main">
             <div class="cont2">
-                <form name="login" action="{{ route('age') }}" method="post">
+                <form name="login" action="{{ route('form.age') }}" method="post">
                     @csrf
                     <input type="text" name="name" placeholder="Name" value="{{ old('name') }}" @if ($errors->has('name')) class="error" @endif>
                     <input type="text" name="lastname" placeholder="Lastname" value="{{ old('lastname') }}" @if ($errors->has('lastname')) class="error" @endif>

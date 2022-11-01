@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(MainController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    Route::post('/main', 'main')->name('main');
 });
 
 
-Route::controller(FormController::class)->group(function () {
+Route::controller(FormController::class)->name('form.')->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::get('/insert-age', 'ageAnonymous')->name('age');
     Route::post('/insert-age', 'ageRequest')->name('age');
+    Route::post('/main', 'main')->name('main');
 });

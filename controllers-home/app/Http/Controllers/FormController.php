@@ -50,6 +50,19 @@ class FormController extends Controller
         return view('age')->with(['name' => $name, 'lastname' => $lastname]);
     }
 
+    public function main(Request $request)
+    {
+        $this->validate($request, [
+            "age" => "required|numeric|min:18",
+        ]);
+
+        $age = $request->input('age');
+        $name = $request->input('name');
+        $lastname = $request->input('lastname');
+
+        return view('main')->with(['age' => $age, 'name' => $name, 'lastname' => $lastname]);
+    }
+
     /**
      * Display the specified resource.
      *

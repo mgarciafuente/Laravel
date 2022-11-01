@@ -32,18 +32,7 @@ class MainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function main(Request $request)
-    {
-        $this->validate($request, [
-            "age" => "required|numeric|min:18",
-        ]);
-
-        $age = $request->input('age');
-        $name = $request->input('name');
-        $lastname = $request->input('lastname');
-
-        return view('main')->with(['age' => $age, 'name' => $name, 'lastname' => $lastname]);
-    }
+    
 
     /**
      * Display the specified resource.
