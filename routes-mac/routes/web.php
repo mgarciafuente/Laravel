@@ -36,7 +36,7 @@ Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts');
 Route::get('recent-posts/{days-ago}', [PostController::class, 'showRecent'])->name('recent-posts'); */
 
 
-// Routes grouped by name
+// Routes with controllers grouped by name
 
 /* Route::name('home.')->group(function () {
     Route::get('/', [MainController::class, 'index'])->name('index');

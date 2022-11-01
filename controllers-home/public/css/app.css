@@ -1,0 +1,186 @@
+*{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(250,250,250);
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(230,230,230);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(180,180,180);
+}
+html, body{
+    background-color: rgb(250,250,250);
+    color: rgb(30,30,30);
+    font: 16px/32px courier,sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: overlay;
+    width: 100%;
+}
+.main {
+    animation: fade .3s forwards .3s;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    padding: 96px 0;
+}
+.cont{
+    margin: 0 auto;
+    max-width: 1800px;
+    padding: 0 32px;
+    width: 100%;
+}
+.cont2 {
+    margin: 0 auto;
+    max-width: 480px;
+    padding: 0 32px;
+    width: 100%;
+}
+@keyframes fade {
+    100%{opacity: 1;}
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+header a {
+    color: rgb(30,30,30);
+}
+h1 {
+    font-weight: normal;
+    letter-spacing: -1px;
+    line-height: 0.75;
+}
+h2 {
+    color: rgb(30,30,30);
+    cursor: default;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+p {
+    margin-bottom: 1rem;
+}
+header {
+    background-color: white;
+    border-bottom: 1px solid rgb(230,230,230);
+    height: 64px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+header .cont {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+.warning {
+    animation: fade .3s forwards .6s;
+    color: rgb(230, 80, 80);
+    font-size: 12px;
+    line-height: 24px;
+    opacity: 0;
+    transform: translate(0, 4px);
+}
+.red {
+    animation: fade .3s forwards .6s;
+    color: rgb(230, 80, 80);
+    opacity: 0;
+}
+.error {
+    border-color:rgb(230, 80, 80);
+}
+input, select, .button {
+    background-color: white;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 2px;
+    font: 16px/32px courier,sans-serif !important;
+    height: 48px;
+    margin: 8px 0;
+    padding: 7px 16px;
+    transition: .3s;
+    width: 100%;
+}
+select {
+    appearance: none;
+    color: rgb(180,180,180);
+    cursor: pointer;
+    background-image: url("../img/arrow.svg") !important;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    background-color: white;
+    background-position-x: calc(100% - 8px);
+    background-position-y: 8px;
+    padding-right: 48px;
+}
+.gone-black {
+    color: rgb(30,30,30);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-internal-autofill-selected {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+input:focus, select:focus {
+    border-color: rgb(180,180,180);
+}
+input::placeholder {
+    color: rgb(180,180,180);
+}
+.button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+input[type="submit"], .button {
+    color: rgb(230,230,230);
+    background-color: rgb(130,130,130);
+    border-color: rgb(130,130,130);
+    cursor: pointer;
+    margin: 1rem  0;
+}
+input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus, .button:hover, .button:active, .button:focus {
+    background-color: rgb(80,80,80);
+    border-color: rgb(80,80,80);
+    color: white;
+}
+footer {
+    border-top: 1px solid rgb(230,230,230);
+    font-size: 12px;
+    height: 32px;
+    width: 100%;
+} 
+footer .cont {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+footer p {
+    margin-bottom: 0;
+}
