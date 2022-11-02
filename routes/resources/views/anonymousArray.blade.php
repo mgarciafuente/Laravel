@@ -21,5 +21,22 @@
         }
     ?>
     </ul>
+    <ul>
+    @foreach ($variableArray as $valor)
+        @if ($loop->first)
+            This is the first iteration.
+        @endif
+
+        @if($loop->index%2==0)
+            <li style='background-color:lightgreen;'>{{$valor}}</li>
+        @else
+            <li>{{$valor}}</li>
+        @endif
+
+        @if ($loop->last)
+            This is the last iteration.
+        @endif
+    @endforeach
+    </ul>
 </body>
 </html>
