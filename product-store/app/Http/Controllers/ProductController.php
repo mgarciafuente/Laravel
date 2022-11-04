@@ -38,12 +38,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        \App\Models\Product::create([
+        Product::create([
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'price' => $request->get('price'),
             'count' => $request->get('count'),
         ]);
+
+        // Same as
+        // Product::create($request->all());
+
+        // Same as
+        // $product = new Product($request->all());
+        // $product->save();
+
+        return redirect('/products');
     }
 
     /**
