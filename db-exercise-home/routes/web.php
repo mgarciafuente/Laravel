@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Use App\Http\Controllers\MountainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [MountainController::class, 'index']);
+Route::get('/tallest-in-europe', [MountainController::class, 'max']);
+Route::get('/show/{id}', [MountainController::class, 'show']);
