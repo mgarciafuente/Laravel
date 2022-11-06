@@ -317,7 +317,7 @@ footer p {
         display: flex;
         flex-direction: column;
         opacity: 0;
-        padding: 16px;
+        padding: 16px 32px;
         position: absolute;
         pointer-events: none;
         right: 0;
