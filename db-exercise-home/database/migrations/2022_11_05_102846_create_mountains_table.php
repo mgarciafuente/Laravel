@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('mountains', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // ('name', length)
+            // $table->string('email')->unique();
             $table->integer('height'); // $table->decimal('height', 6, 2); (ex) 8848.86
             $table->boolean('belongsToRange');
             $table->dateTime('firstClimbDate'); // ->nullable();
