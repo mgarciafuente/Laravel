@@ -7,7 +7,7 @@
         <section>           
             <h2>Search task</h2>
             <div class="current-tasks">
-                <form action="{{ route('store') }}" method="post">
+                <form action="{{ route('show-search') }}" method="post">
                     @csrf
                     @if($errors->any())
                         <span class="warning">
