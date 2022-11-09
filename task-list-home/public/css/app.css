@@ -187,7 +187,7 @@ table {
 .current-tasks tr:not(:last-child) td {
     border-bottom: 1px solid rgb(230,230,230);
 }
-input, select, .button {
+input, select, .button, .homeul ul li a {
     background-color: white;
     border: 1px solid rgb(230,230,230);
     border-radius: 2px;
@@ -261,6 +261,9 @@ footer .cont {
 }
 footer p {
     margin-bottom: 0;
+}
+.homeul li {
+    list-style-type: none;
 }
 
 @media screen and (max-width: 767px) {
