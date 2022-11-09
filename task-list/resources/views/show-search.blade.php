@@ -6,7 +6,7 @@
     <div class="cont2">
         <section>           
             <h2>Search results</h2>
-            <div class="current-tasks">
+            <div class="content">
                 <table>
                     @forelse($tasks as $task)
                         <tr>

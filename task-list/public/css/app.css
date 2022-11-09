@@ -55,6 +55,9 @@ html, body{
 @keyframes fade {
     100%{opacity: 1;}
 }
+li {
+    list-style-type: none;
+}
 a {
     cursor: pointer;
     text-decoration: none;
@@ -174,17 +177,17 @@ section + section {
 table {
     width: 100%;
 }
-.current-tasks {
+.content {
     width: 100%;
     padding: 16px 32px;
 }
-.current-tasks tr td {
+.content tr td {
     padding: 8px 0;
 }
-.current-tasks tr td:last-child {
+.content tr td:last-child {
     text-align: right;
 }
-.current-tasks tr:not(:last-child) td {
+.content tr:not(:last-child) td {
     border-bottom: 1px solid rgb(230,230,230);
 }
 input, select, .button, .homeul ul li a {
@@ -262,9 +265,7 @@ footer .cont {
 footer p {
     margin-bottom: 0;
 }
-.homeul li {
-    list-style-type: none;
-}
+
 
 @media screen and (max-width: 767px) {
     .menu {

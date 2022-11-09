@@ -1,6 +1,6 @@
 <div class="cont">
     <a href="{{ route('index') }}"><h1>Task list</h1></a>
-    <nav>
+    <nav @if(isset($menu) && $menu == 'no') style="display:none" @endif>
         <button class="menu">
             <span class="line1"></span>
             <span class="line2"></span>

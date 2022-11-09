@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('home');
+        return view('home')->with(['menu' => 'no']);
     }
 
     public function new()
@@ -44,6 +44,12 @@ class TaskController extends Controller
 
     public function show(Request $request)
     {
+        $this->validate($request, [
+            "search" => "required|min:1",
+        ],
+        [
+            'search.required'=> 'Write something...', // custom message
+         ]);
         $search = $request->input('search');
         $tasks = DB::table('tasks')->where('name', 'LIKE', "%$search%")->get();
         return view('show-search')->with(['tasks' => $tasks]);

@@ -6,7 +6,7 @@
     <div class="cont2">
         <section>           
             <h2>Current tasks</h2>
-            <div class="current-tasks">
+            <div class="content">
                 <table>
                     @foreach($tasks as $task)
                         <tr>

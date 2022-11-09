@@ -1,21 +1,21 @@
 @extends('layouts.master')
 
-@section('title', 'Search task')
+@section('title', 'New task')
 
 @section('content')
     <div class="cont2">
         <section>           
-            <h2>Search task</h2>
-            <div class="current-tasks">
-                <form action="{{ route('show-search') }}" method="post">
+            <h2>New task</h2>
+            <div class="content">
+                <form action="{{ route('store') }}" method="post">
                     @csrf
                     @if($errors->any())
                         <span class="warning">
                             {{ implode('', $errors->all(':message')) }}
                         </span>
                     @endif
-                    <input type="text" name="search" placeholder="Find a task!" value="{{ old('name') }}"  @if ($errors->has('name')) class="error" @endif>
-                    <button class="button" type="submit" name="submit">Find</button>
+                    <input type="text" name="name" placeholder="Write a new task!" value="{{ old('name') }}"  @if ($errors->has('name')) class="error" @endif>
+                    <button class="button" type="submit" name="submit">Add</button>
                 </form>
             </div>
         </section>
