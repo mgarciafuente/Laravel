@@ -8,6 +8,14 @@
             <h2>Search results</h2>
             <div class="content">
                 <table>
+                    @if($parkings->isNotEmpty())
+                        <tr>
+                            <th>Plate</th>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th></th>
+                        </tr>
+                    @endif
                     @forelse($parkings as $parking)
                         <tr>
                             <td>{{ $parking->plate }}</td>

@@ -153,7 +153,7 @@ form {
     font-size: 12px;
     height: 32px;
     line-height: 16px;
-    min-width: 96px;
+    min-width: 120px;
     padding: 8px;
     text-align: center;
     transition: .3s;
@@ -179,6 +179,13 @@ section + section {
 }
 table {
     width: 100%;
+}
+table th {
+    color: rgb(180,180,180);
+    border-bottom: 1px solid rgb(230,230,230);
+    font-size: 12px;
+    font-weight: 300;
+    text-align: left;
 }
 .content {
     width: 100%;
