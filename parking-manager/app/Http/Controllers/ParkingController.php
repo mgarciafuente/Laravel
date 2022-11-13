@@ -67,7 +67,7 @@ class ParkingController extends Controller
 
     public function destroy($id)
     {
-        parking::destroy($id);
+        Parking::destroy($id);
         return redirect(route('index'));
     }
 }

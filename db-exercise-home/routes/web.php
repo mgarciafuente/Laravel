@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\MountainController;
+Use App\Http\Controllers\ShowMountains1;
 Use App\Http\Controllers\ShowMountains2;
 
 /*
@@ -22,4 +23,5 @@ Route::get('/', function () {
 Route::get('/', [MountainController::class, 'index']);
 Route::get('/tallest-in-europe', [MountainController::class, 'max']);
 Route::get('/show/{id}', [MountainController::class, 'show']);
+Route::get('/show-mountains1', ShowMountains1::class);
 Route::get('/show-mountains2', ShowMountains2::class);

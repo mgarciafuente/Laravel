@@ -16,11 +16,11 @@ class ShowMountains1 extends Controller
     public function __invoke(Request $request)
     {
         $mountains = DB::table('mountains')
-            ->where('belongsToRange', true)
-            ->where('firstClimbDate', '>', '2000-01-01')
+            //->where('belongsToRange', true)
+            //->where('firstClimbDate', '>', '2000-01-01')
             ->where('continent', 'Europe')
             ->get();
 
-            return view('showMountains1', ['mountains' => $mountains]);
+        return view('home', ['mountains' => $mountains]);
     }
 }

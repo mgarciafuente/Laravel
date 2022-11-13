@@ -9,10 +9,8 @@
             <div class="content">
                 <form action="{{ route('show-search') }}" method="post">
                     @csrf
-                    @if($errors->any())
-                        <span class="warning">
-                            {{ implode('', $errors->all(':message')) }}
-                        </span>
+                    @if($errors->has('search'))
+                        <span class="warning">{{ $errors->first('search') }} </span>
                     @endif
                     <input type="text" name="search" placeholder="Find a parking!" value="{{ old('name') }}"  @if ($errors->has('search')) class="error" @endif>
                     <button class="button" type="submit" name="submit">Find</button>
