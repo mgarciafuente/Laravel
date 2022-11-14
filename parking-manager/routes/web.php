@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,17 @@ use App\Http\Controllers\ParkingController;
 |
 */
 
-Route::get('/', [ParkingController::class, 'index'])->name('index');
-Route::get('/new-parking', [ParkingController::class, 'new'])->name('new');
-Route::get('/current-parkings', [ParkingController::class, 'current'])->name('current');
-Route::get('/search-parking', [ParkingController::class, 'search'])->name('search');
-Route::post('/show-search', [ParkingController::class, 'show'])->name('show-search');
-Route::post('/store', [ParkingController::class, 'store'])->name('store');
-Route::post('/destroy/{id}', [ParkingController::class, 'destroy'])->name('destroy');
+Route::controller(ParkingController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/new-parking', 'new')->name('new');
+    Route::get('/current-parkings', 'current')->name('current');
+    Route::get('/search-parking', 'search')->name('search');
+    Route::post('/show-search', 'show')->name('show-search');
+    Route::post('/store', 'store')->name('store');
+    Route::post('/destroy/{id}', 'destroy')->name('destroy');
+});
+
+Route::get('/new-user', [UsuarioController::class, 'newUser'])->name('new-user');
+Route::get('/assign-user', [UsuarioController::class, 'assignUser'])->name('assign-user');
+Route::post('/store-user', [UsuarioController::class, 'storeUser'])->name('store-user');
+Route::post('/store-assigment', [UsuarioController::class, 'storeAssigment'])->name('store-assigment');
