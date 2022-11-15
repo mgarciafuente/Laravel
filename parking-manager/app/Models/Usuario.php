@@ -13,4 +13,6 @@ class Usuario extends Model
         'name',
         'dni'
     ];
+
+    protected $table = "users";
 }

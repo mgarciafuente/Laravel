@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parking;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,8 +21,10 @@ class ParkingController extends Controller
     
     public function current()
     {
-        $parkings = DB::table('parkings')->get();
-        return view('current')->with(['parkings' => $parkings]);
+        //$parkings = DB::table('parkings')->get();
+        $parkings = Parking::all();
+        $users = Usuario::all();
+        return view('current')->with(['parkings' => $parkings, 'users' => $users]);
     }
 
     public function search()

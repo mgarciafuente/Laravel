@@ -13,6 +13,7 @@
                             <th>Plate</th>
                             <th>Brand</th>
                             <th>Model</th>
+                            <th>User</th>
                             <th></th>
                         </tr>
                     @endif
@@ -21,11 +22,19 @@
                             <td>{{ $parking->plate }}</td>
                             <td>{{ $parking->brand }}</td>
                             <td>{{ $parking->model }}</td>
+                            <td>
+                                @foreach($users as $user)
+                                    @if((string)$user->id == (string)$parking->user)
+                                        {{ $user->name }}
+                                    @endif
+                                @endforeach
+                            </td>
                             <td>@include('includes/delete', ['text' => 'Delete'])</td>
                         </tr>
                     @empty
                         <tr><td class="red">No results found</td><td></td></tr>
                     @endforelse
+                    
                 </table>
             </div>
         </section>
