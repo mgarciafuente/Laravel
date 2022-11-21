@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\DirectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [UsuarioController::class, 'index'])->name('home');
+Route::put('/store-usuario', [UsuarioController::class, 'store'])->name('store-usuario');
+
+Route::get('/insert-direction', [DirectionController::class, 'index'])->name('insert-direction');
+Route::put('/store-direction', [DirectionController::class, 'store'])->name('store-direction');
