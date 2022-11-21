@@ -21,8 +21,8 @@ Route::controller(ParkingController::class)->group(function(){
     Route::get('/current-parkings', 'current')->name('current');
     Route::get('/search-parking', 'search')->name('search');
     Route::post('/show-search', 'show')->name('show-search');
-    Route::post('/store', 'store')->name('store');
-    Route::post('/destroy/{id}', 'destroy')->name('destroy');
+    Route::put('/store', 'store')->name('store');
+    Route::delete('/destroy/{id}', 'destroy')->name('destroy');
 });
 
 Route::get('/new-user', [UsuarioController::class, 'newUser'])->name('new-user');

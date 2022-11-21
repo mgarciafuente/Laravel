@@ -9,6 +9,7 @@
             <div class="content">
                 <form action="{{ route('store') }}" method="post">
                     @csrf
+                    @method('put')
                     @if($errors->any())
                         <span class="warning">
                             {{ implode('', $errors->all(':message')) }}

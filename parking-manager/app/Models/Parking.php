@@ -13,5 +13,6 @@ class Parking extends Model
         'plate',
         'brand',
         'model',
+        'userId'
     ];
 }

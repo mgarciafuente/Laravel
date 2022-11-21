@@ -24,7 +24,7 @@
                             <td>{{ $parking->model }}</td>
                             <td>
                                 @foreach($users as $user)
-                                    @if((string)$user->id == (string)$parking->user)
+                                    @if((string)$user->id == (string)$parking->userId)
                                         {{ $user->name }}
                                     @endif
                                 @endforeach

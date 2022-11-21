@@ -43,7 +43,7 @@ class UsuarioController extends Controller
         $carId = $request->input('car');
         $userId = $request->input('user');
 
-        DB::table('parkings')->where('id', $carId)->update(['user' => $userId]);
+        DB::table('parkings')->where('id', $carId)->update(['userId' => $userId]);
 
         return redirect(route('index'));
     }
