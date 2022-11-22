@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Usuario;
 
-class Direction extends Model
+class Post extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'street',
-        'number',
-        'postal_code',
-        'city',
+        'title',
+        'text'
     ];
 
     public function direction() {

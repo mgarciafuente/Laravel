@@ -15,7 +15,11 @@ use App\Http\Controllers\DirectionController;
 |
 */
 
-Route::get('/', [UsuarioController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return redirect('insert-user');
+});
+
+Route::get('/insert-user', [UsuarioController::class, 'index'])->name('insert-user');
 Route::put('/store-usuario', [UsuarioController::class, 'store'])->name('store-usuario');
 
 Route::get('/insert-direction', [DirectionController::class, 'index'])->name('insert-direction');

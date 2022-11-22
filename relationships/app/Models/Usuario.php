@@ -16,6 +16,13 @@ class Usuario extends Model
     ];
 
     public function direction() {
-        return $this->hasOne('Direction', 'usuario_id');
+        return $this->hasOne('Direction');
+        // al no poner el nombre del campo, es 'direction_id'
+    }
+
+
+    public function posts() { // nombre del método en plural xq es hasMany
+        return $this->hasMany('Post');
+        // al no poner el nombre del campo, es 'post_id'
     }
 }

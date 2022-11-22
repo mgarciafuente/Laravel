@@ -3,38 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Direction;
 
 class DirectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('insert-direction');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'street' => 'required',
+            'number' => 'required',
+            'postal_code' => 'required',
+            'city' => 'required'
+        ]);
+
+        $street = $request->input('street');
+        $number = $request->input('number');
+        $postal_code = $request->input('postal_code');
+        $city = $request->input('city');
+
+        Direction::create(['street' => $street, 'number' => $number, 'postal_code' => $postal_code, 'city' => $city]);
+        return redirect(route('home'));
     }
 
     /**
