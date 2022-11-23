@@ -17,5 +17,6 @@ class Post extends Model
 
     public function direction() {
         return $this->belongsTo('Usuario');
+        // al no poner el nombre del campo, es 'usuario_id'
     }
 }

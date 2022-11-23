@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Direction;
+use App\Models\Post;
 
 class Usuario extends Model
 {
@@ -17,12 +18,10 @@ class Usuario extends Model
 
     public function direction() {
         return $this->hasOne('Direction');
-        // al no poner el nombre del campo, es 'direction_id'
     }
 
 
     public function posts() { // nombre del método en plural xq es hasMany
         return $this->hasMany('Post');
-        // al no poner el nombre del campo, es 'post_id'
     }
 }

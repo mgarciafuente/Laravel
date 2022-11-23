@@ -15,12 +15,12 @@ use App\Http\Controllers\DirectionController;
 |
 */
 
-Route::get('/', function () {
-    return redirect('insert-user');
-});
+Route::view('/', ('home'))->name('home');
 
 Route::get('/insert-user', [UsuarioController::class, 'index'])->name('insert-user');
-Route::put('/store-usuario', [UsuarioController::class, 'store'])->name('store-usuario');
+Route::post('/store-usuario', [UsuarioController::class, 'store'])->name('store-usuario');
 
 Route::get('/insert-direction', [DirectionController::class, 'index'])->name('insert-direction');
-Route::put('/store-direction', [DirectionController::class, 'store'])->name('store-direction');
+Route::post('/store-direction', [DirectionController::class, 'store'])->name('store-direction');
+Route::get('/assign-direction', [DirectionController::class, 'assign'])->name('assign-direction');
+Route::put('/store-direction-assigment', [DirectionController::class, 'storeAssigment'])->name('store-direction-assigment');

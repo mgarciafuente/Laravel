@@ -13,7 +13,6 @@ class UsuarioController extends Controller
         return view('insert-user');
     }
 
-
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -26,25 +25,5 @@ class UsuarioController extends Controller
 
         Usuario::create(['name' => $name, 'surname' => $surname]);
         return redirect(route('home'));
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -12,6 +12,7 @@
         <ul>
             <li><a href="{{ route('insert-user') }}">Insert user</a></li>
             <li><a href="{{ route('insert-direction') }}">Insert direction</a></li>
+            <li><a href="{{ route('assign-direction') }}">Assign direction</a></li>
         </ul>
     </nav>
     <br>

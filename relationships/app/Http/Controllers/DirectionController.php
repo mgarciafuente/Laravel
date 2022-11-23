@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Direction;
+use App\Models\Usuario;
 
 class DirectionController extends Controller
 {
@@ -28,51 +29,25 @@ class DirectionController extends Controller
         $city = $request->input('city');
 
         Direction::create(['street' => $street, 'number' => $number, 'postal_code' => $postal_code, 'city' => $city]);
+
         return redirect(route('home'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function assign()
     {
-        //
+        $usuarios = Usuario::all();
+        $directions = Direction::all();
+
+        return view('assign-direction', ['usuarios' => $usuarios, 'directions' => $directions]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function storeAssigment(Request $request)
     {
-        //
-    }
+        $usuario = Usuario::findOrFail($request->input('usuario_id'));
+        $direction = Direction::findOrFail($request->input('direction_id'));
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $usuario->direction()->save($direction);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect(route('home'));
     }
 }
