@@ -17,10 +17,22 @@ use App\Http\Controllers\DirectionController;
 
 Route::view('/', ('home'))->name('home');
 
-Route::get('/insert-user', [UsuarioController::class, 'index'])->name('insert-user');
-Route::post('/store-usuario', [UsuarioController::class, 'store'])->name('store-usuario');
+Route::controller(UsuarioController::class)->group(function() {
+    Route::get('/usuarios', 'index')->name('usuarios');
+    Route::get('/insert-usuario', 'insert')->name('insert-usuario');
+    Route::post('/store-usuario', 'store')->name('store-usuario');
+    Route::post('/edit-usuario/{usuario}', 'edit')->name('edit-usuario');
+    Route::put('/update-usuario', 'update')->name('update-usuario');
+});
 
-Route::get('/insert-direction', [DirectionController::class, 'index'])->name('insert-direction');
-Route::post('/store-direction', [DirectionController::class, 'store'])->name('store-direction');
-Route::get('/assign-direction', [DirectionController::class, 'assign'])->name('assign-direction');
-Route::put('/store-direction-assigment', [DirectionController::class, 'storeAssigment'])->name('store-direction-assigment');
+Route::controller(DirectionController::class)->group(function() {
+    Route::get('/insert-direction', 'index')->name('insert-direction');
+    Route::post('/store-direction', 'store')->name('store-direction');
+    Route::get('/assign-direction', 'assign')->name('assign-direction');
+    Route::put('/store-direction-assigment', 'storeAssigment')->name('store-direction-assigment');
+});
+
+Route::controller(PostController::class)->group(function() {
+    Route::get('/insert-post', 'index')->name('insert-post');
+
+});

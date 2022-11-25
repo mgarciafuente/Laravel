@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Usuario;
 
 class Direction extends Model
 {
@@ -17,8 +16,8 @@ class Direction extends Model
         'city',
     ];
 
-    public function direction() {
-        return $this->belongsTo('Usuario');
+    public function usuario() {
+        return $this->belongsTo('App\Models\Usuario');
         // al no poner el nombre del campo, es 'usuario_id'
     }
 }

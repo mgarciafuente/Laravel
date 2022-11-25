@@ -10,7 +10,8 @@
     <h1>@yield('title')</h1>
     <nav>
         <ul>
-            <li><a href="{{ route('insert-user') }}">Insert user</a></li>
+            <li><a href="{{ route('usuarios') }}">Users</a></li>
+            <li><a href="{{ route('insert-usuario') }}">Insert user</a></li>
             <li><a href="{{ route('insert-direction') }}">Insert direction</a></li>
             <li><a href="{{ route('assign-direction') }}">Assign direction</a></li>
         </ul>
