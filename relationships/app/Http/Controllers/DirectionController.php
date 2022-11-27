@@ -11,7 +11,12 @@ class DirectionController extends Controller
 
     public function index()
     {
-        return view('insert-direction');
+        return view('direction.directions', ['directions' => Direction::all()]);
+    }
+
+    public function insert()
+    {
+        return view('direction.insert-direction');
     }
 
     public function store(Request $request)
@@ -33,12 +38,37 @@ class DirectionController extends Controller
         return redirect(route('home'));
     }
 
+    public function edit(Direction $direction)
+    {
+        return view('direction.edit-direction', ['direction' => $direction]);
+    }
+
+    public function update(Request $request, Direction $direction)
+    {
+        $this->validate($request, [
+            'street' => 'required',
+            'number' => 'required',
+            'postal_code' => 'required',
+            'city' => 'required'
+        ]);
+
+        $street = $request->street;
+        $number = $request->number;
+        $postal_code = $request->postal_code;
+        $city = $request->city;
+
+        $direction->update(['street' => $street, 'number' => $number, 'postal_code' => $postal_code, 'city' => $city]);
+        
+        return redirect(route('home'));
+    }
+
     public function assign()
     {
-        $usuarios = Usuario::all();
+        $assignedUsers = Direction::where('usuario_id' ,'>' ,0)->get('usuario_id');
+        $usuarios = Usuario::whereNotIn('id', $assignedUsers)->get();
         $directions = Direction::all();
 
-        return view('assign-direction', ['usuarios' => $usuarios, 'directions' => $directions]);
+        return view('direction.assign-direction', ['usuarios' => $usuarios, 'directions' => $directions]);
     }
 
     public function storeAssigment(Request $request)
@@ -48,6 +78,12 @@ class DirectionController extends Controller
 
         $usuario->direction()->save($direction);
 
+        return redirect(route('home'));
+    }
+
+    public function destroy($id) {
+        
+        Direction::destroy($id);
         return redirect(route('home'));
     }
 }
