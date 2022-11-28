@@ -21,6 +21,9 @@
             <br>
             <li><a href="{{ route('posts') }}">Posts</a></li>
             <li><a href="{{ route('insert-post') }}">Insert post</a></li>
+            <br>
+            <li><a href="{{ route('temas') }}">Temas</a></li>
+            <li><a href="{{ route('insert-tema') }}">Insert tema</a></li>
         </ul>
     </nav>
     <br>

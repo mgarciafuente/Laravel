@@ -14,8 +14,14 @@ class Post extends Model
         'text'
     ];
 
-    public function usuario() {
+    public function usuario()
+    {
         return $this->belongsTo('App\Models\Usuario');
         // al no poner el nombre del campo, es 'usuario_id'
+    }
+
+    public function temas()
+    {
+        return $this->belongsToMany('App\Models\Tema');
     }
 }

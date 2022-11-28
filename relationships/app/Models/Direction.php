@@ -16,7 +16,8 @@ class Direction extends Model
         'city',
     ];
 
-    public function usuario() {
+    public function usuario()
+    {
         return $this->belongsTo('App\Models\Usuario');
         // al no poner el nombre del campo, es 'usuario_id'
     }

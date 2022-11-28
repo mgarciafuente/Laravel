@@ -15,12 +15,14 @@ class Usuario extends Model
         'surname'
     ];
 
-    public function direction() {
+    public function direction()
+    {
         return $this->hasOne('App\Models\Direction');
     }
 
 
-    public function posts() { // nombre del método en plural xq es hasMany
+    public function posts() // nombre del método en plural xq es hasMany
+    {
         return $this->hasMany('App\Models\Post');
     }
 }

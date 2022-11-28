@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Post;
+use App\Models\Tema;
 
 class PostController extends Controller
 {
@@ -16,7 +17,8 @@ class PostController extends Controller
     public function insert()
     {
         $usuarios = Usuario::all();
-        return view('post.insert-post')->with(['usuarios' => $usuarios]);
+        $temas = Tema::all();
+        return view('post.insert-post')->with(['usuarios' => $usuarios, 'temas' => $temas]);
     }
 
     
@@ -25,12 +27,14 @@ class PostController extends Controller
         $this->validate($request, [
             'usuario_id' => 'required',
             'title' => 'required',
-            'text' => 'required'
+            'text' => 'required',
+            'tema[]' => 'required'
         ]);
 
         $usuario_id = $request->usuario_id;
         $title = $request->title;
         $text = $request->text;
+        $tema = $request->input('tema[]');
 
         $post = Post::create(['usuario_id' => $usuario_id, 'title' => $title, 'text' => $text]);
         $usuario = Usuario::findOrFail($usuario_id);

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\DirectionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TemaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::controller(UsuarioController::class)->group(function() {
     Route::post('/store-usuario', 'store')->name('store-usuario');
 
     Route::post('/edit-usuario/{usuario}', 'edit')->name('edit-usuario');
-    Route::patch('/update-usuario/{usuario}', 'update')->name('update-usuario');
+    Route::put('/update-usuario/{usuario}', 'update')->name('update-usuario');
 
     Route::delete('/destroy-usuario/{usuario}', 'destroy')->name('destroy-usuario');
 });
@@ -37,7 +38,7 @@ Route::controller(DirectionController::class)->group(function() {
     Route::post('/store-direction', 'store')->name('store-direction');
 
     Route::post('/edit-direction/{direction}', 'edit')->name('edit-direction');
-    Route::patch('/update-direction/{direction}', 'update')->name('update-direction');
+    Route::put('/update-direction/{direction}', 'update')->name('update-direction');
 
     Route::get('/assign-direction', 'assign')->name('assign-direction');
     Route::put('/store-direction-assigment', 'storeAssigment')->name('store-direction-assigment');
@@ -52,4 +53,13 @@ Route::controller(PostController::class)->group(function() {
     Route::post('/store-post', 'store')->name('store-post');
 
     Route::delete('/destroy-post/{post}', 'destroy')->name('destroy-post');
+});
+
+Route::controller(TemaController::class)->group(function() {
+    Route::get('/temas', 'index')->name('temas');
+
+    Route::get('/insert-tema', 'insert')->name('insert-tema');
+    Route::post('/store-tema', 'store')->name('store-tema');
+
+    Route::delete('/destroy-tema/{tema}', 'destroy')->name('destroy-tema');
 });
