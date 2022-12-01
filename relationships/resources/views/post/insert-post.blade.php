@@ -8,8 +8,8 @@
                 <option value="{{ $usuario->id }}">{{ $usuario->name }} {{ $usuario->surname }}</option>
             @endforeach
         </select><br><br>
-        <input type="text" name="title" placeholder="Title"><br><br>
-        <textarea  name="text" placeholder="Text"></textarea><br><br>
+        <input type="text" name="title" placeholder="Title" value="{{ old('title') }}"><br><br>
+        <textarea  name="text" placeholder="Text">{{ old('text') }}</textarea><br><br>
         @foreach($temas as $tema)
             <label>
                 <input type="checkbox" name="temas[]" value="{{ $tema->id }}">
