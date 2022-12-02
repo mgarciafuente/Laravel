@@ -28,24 +28,25 @@ class PostController extends Controller
             'usuario_id' => 'required',
             'title' => 'required',
             'text' => 'required',
-            'tema[]' => 'required'
+            'temas' => 'required'
         ]);
 
         $usuario_id = $request->usuario_id;
         $title = $request->title;
         $text = $request->text;
-        $temas = $request->input('tema[]');
+        $temas = $request->temas;
 
-        dd($text);
-
-        $post = Post::create(['usuario_id' => $usuario_id, 'title' => $title, 'text' => $text]);
+        $post = Post::create(['title' => $title, 'text' => $text]);
         $usuario = Usuario::findOrFail($usuario_id);
         $usuario->posts()->save($post);
+        $post->temas()->attach($temas);
 
-        foreach($temas as $tema) {
-            $post->temas()->attach($tema);
-        }
+        return redirect()->route('home');
+    }
 
-        //return redirect()->route('home');
+    public function destroy($id)
+    {   
+        Post::destroy($id);
+        return redirect(route('home'));
     }
 }

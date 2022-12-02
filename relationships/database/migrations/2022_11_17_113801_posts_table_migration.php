@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('text');
             // $table->unsignedBigInteger('id_ususario');
             // $table->foreign('id_usuario')->references('id')->on('usuarios');
-            $table->foreignId('usuario_id')->nullable()->constrained(); // eloquent standard
+            $table->foreignId('usuario_id')->nullable()->constrained()->onDelete('cascade'); // eloquent standard
             $table->timestamps();
         });
     }
