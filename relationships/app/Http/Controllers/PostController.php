@@ -34,12 +34,18 @@ class PostController extends Controller
         $usuario_id = $request->usuario_id;
         $title = $request->title;
         $text = $request->text;
-        $tema = $request->input('tema[]');
+        $temas = $request->input('tema[]');
+
+        dd($text);
 
         $post = Post::create(['usuario_id' => $usuario_id, 'title' => $title, 'text' => $text]);
         $usuario = Usuario::findOrFail($usuario_id);
         $usuario->posts()->save($post);
 
-        return redirect()->route('home');
+        foreach($temas as $tema) {
+            $post->temas()->attach($tema);
+        }
+
+        //return redirect()->route('home');
     }
 }
