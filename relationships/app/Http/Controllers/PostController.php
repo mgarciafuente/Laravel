@@ -44,6 +44,35 @@ class PostController extends Controller
         return redirect()->route('home');
     }
 
+    public function edit(Post $post)
+    {
+        return view('post.edit-post', ['post' => $post, 'temas' => Tema::all()]);
+    }
+
+
+    
+    public function update(Request $request)
+    {
+        $this->validate($request, [
+            'usuario_id' => 'required',
+            'title' => 'required',
+            'text' => 'required',
+            'temas' => 'required'
+        ]);
+
+        $usuario_id = $request->usuario_id;
+        $title = $request->title;
+        $text = $request->text;
+        $temas = $request->temas;
+
+        $post = Post::create(['title' => $title, 'text' => $text]);
+        $usuario = Usuario::findOrFail($usuario_id);
+        $usuario->posts()->update($post);
+        $post->temas()->attach($temas);
+
+        return redirect()->route('home');
+    }
+
     public function destroy($id)
     {   
         Post::destroy($id);

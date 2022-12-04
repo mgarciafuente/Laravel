@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('number');
             $table->integer('postal_code');
             $table->string('city');
-            $table->foreignId('usuario_id')->unique()->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('usuario_id')->unique()->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -52,6 +52,9 @@ Route::controller(PostController::class)->group(function() {
     Route::get('/insert-post', 'insert')->name('insert-post');
     Route::post('/store-post', 'store')->name('store-post');
 
+    Route::post('/edit-post/{post}', 'edit')->name('edit-post');
+    Route::put('/update-post/{post}', 'update')->name('update-post');
+
     Route::delete('/destroy-post/{post}', 'destroy')->name('destroy-post');
 });
 

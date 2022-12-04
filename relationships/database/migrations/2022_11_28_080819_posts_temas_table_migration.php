@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('post_tema', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id')->constrained()->onDelete('cascade');
-            $table->integer('tema_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('tema_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
