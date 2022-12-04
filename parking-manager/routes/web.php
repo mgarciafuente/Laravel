@@ -21,11 +21,11 @@ Route::controller(ParkingController::class)->group(function(){
     Route::get('/current-parkings', 'current')->name('current');
     Route::get('/search-parking', 'search')->name('search');
     Route::post('/show-search', 'show')->name('show-search');
-    Route::put('/store', 'store')->name('store');
+    Route::post('/store', 'store')->name('store');
+    Route::put('/store-assigment', 'storeAssigment')->name('store-assigment');
     Route::delete('/destroy/{id}', 'destroy')->name('destroy');
 });
 
 Route::get('/new-user', [UsuarioController::class, 'newUser'])->name('new-user');
 Route::get('/assign-user', [UsuarioController::class, 'assignUser'])->name('assign-user');
 Route::post('/store-user', [UsuarioController::class, 'storeUser'])->name('store-user');
-Route::post('/store-assigment', [UsuarioController::class, 'storeAssigment'])->name('store-assigment');

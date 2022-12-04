@@ -13,10 +13,14 @@
                         <span class="warning">{{ $errors->first('name') }}</span>
                     @endif
                     <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"  @if ($errors->has('name')) class="error" @endif>
-                    @if($errors->has('dni'))
-                        <span class="warning">{{ $errors->first('dni') }}</span>
+                    @if($errors->has('lastname'))
+                        <span class="warning">{{ $errors->first('lastname') }}</span>
                     @endif
-                    <input type="text" name="dni" placeholder="DNI" value="{{ old('dni') }}"  @if ($errors->has('dni')) class="error" @endif>
+                    <input type="text" name="lastname" placeholder="Lastname" value="{{ old('lastname') }}"  @if ($errors->has('lastname')) class="error" @endif>
+                    @if($errors->has('email'))
+                        <span class="warning">{{ $errors->first('email') }}</span>
+                    @endif
+                    <input type="text" name="email" placeholder="Email" value="{{ old('email') }}"  @if ($errors->has('email')) class="error" @endif>
                     <button class="button" type="submit" name="submit">Add</button>
                 </form>
             </div>

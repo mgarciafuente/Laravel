@@ -25,25 +25,15 @@ class UsuarioController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'dni' => 'required|size:9'
-            
+            'lastname' => 'required',
+            'email' => 'required',            
         ]);
 
         $name = $request->input('name');
-        $dni = $request->input('dni');
+        $lastname = $request->input('lastname');
+        $email = $request->input('email');
 
-        DB::table('users')->insert(['name' => $name, 'dni' => $dni]);
-
-        return redirect(route('index'));
-    }
-
-    public function storeAssigment(Request $request)
-    {
-
-        $carId = $request->input('car');
-        $userId = $request->input('user');
-
-        DB::table('parkings')->where('id', $carId)->update(['userId' => $userId]);
+        Usuario::create(['name' => $name, 'lastname' => $lastname, 'email' => $email]);
 
         return redirect(route('index'));
     }

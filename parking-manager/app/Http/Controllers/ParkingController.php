@@ -21,10 +21,8 @@ class ParkingController extends Controller
     
     public function current()
     {
-        //$parkings = DB::table('parkings')->get();
         $parkings = Parking::all();
-        $users = Usuario::all();
-        return view('current')->with(['parkings' => $parkings, 'users' => $users]);
+        return view('current')->with(['parkings' => $parkings]);
     }
 
     public function search()
@@ -66,6 +64,16 @@ class ParkingController extends Controller
             ->orWhere('model', 'LIKE', "%$search%")
             ->get();
         return view('show-search')->with(['parkings' => $parkings]);
+    }
+
+    public function storeAssigment(Request $request)
+    {
+        $carId = $request->input('car');
+        $userId = $request->input('user');
+
+        DB::table('parkings')->where('id', $carId)->update(['user_id' => $userId]);
+
+        return redirect(route('index'));
     }
 
     public function destroy($id)

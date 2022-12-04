@@ -11,8 +11,14 @@ class Usuario extends Model
 
     protected $fillable = [
         'name',
-        'dni'
+        'lastname',
+        'email'
     ];
 
     protected $table = "users";
+
+    public function parkings()
+    {
+        return $this->hasMany('App\Models\Parking');
+    }
 }

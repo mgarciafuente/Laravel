@@ -22,13 +22,7 @@
                             <td>{{ $parking->plate }}</td>
                             <td>{{ $parking->brand }}</td>
                             <td>{{ $parking->model }}</td>
-                            <td>
-                                @foreach($users as $user)
-                                    @if((string)$user->id == (string)$parking->userId)
-                                        {{ $user->name }}
-                                    @endif
-                                @endforeach
-                            </td>
+                            <td>{{ $parking->user->name }}</td>
                             <td>@include('includes/delete', ['text' => 'Delete'])</td>
                         </tr>
                     @empty

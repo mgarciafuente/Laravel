@@ -9,6 +9,7 @@
             <div class="content">
                 <form action="{{ route('store-assigment') }}" method="post">
                     @csrf
+                    @method('put')
                     <select name="car">
                         @foreach($cars as $car)
                             <option value="{{ $car->id }}">{{ $car->plate }}</option>

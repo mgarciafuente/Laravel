@@ -12,7 +12,12 @@ class Parking extends Model
     protected $fillable = [
         'plate',
         'brand',
-        'model',
-        'userId'
+        'model'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\Usuario', 'user_id');
+        // al no poner el nombre del campo, es 'usuario_id'
+    }
 }
