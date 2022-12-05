@@ -42,9 +42,11 @@ class ParkingController extends Controller
             'brand.required'=> 'A brand is required. ',
             'model.required'=> 'A model is required. ', 
          ]);
+
         $plate = $request->input('plate');  
         $brand = $request->input('brand');  
-        $model = $request->input('model');  
+        $model = $request->input('model');
+        
         Parking::create(['plate' => $plate, 'brand' => $brand, 'model' => $model]);
         return redirect(route('index'));
     }

@@ -9,10 +9,10 @@
             <div class="content">
                 <form action="{{ route('store-user') }}" method="post">
                     @csrf
-                    @if($errors->has('name'))
-                        <span class="warning">{{ $errors->first('name') }}</span>
-                    @endif
-                    <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"  @if ($errors->has('name')) class="error" @endif>
+                    @error('name')
+                        <span class="warning">{{ $message }}</span>
+                    @enderror
+                    <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"  @error('name') class="error" @enderror>
                     @if($errors->has('lastname'))
                         <span class="warning">{{ $errors->first('lastname') }}</span>
                     @endif
