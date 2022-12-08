@@ -9,18 +9,12 @@
             <div class="content">
                 <form action="{{ route('store-user') }}" method="post">
                     @csrf
-                    @error('name')
-                        <span class="warning">{{ $message }}</span>
-                    @enderror
+                    @error('name') <span class="warning">{{ $message }}</span>@enderror
                     <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"  @error('name') class="error" @enderror>
-                    @if($errors->has('lastname'))
-                        <span class="warning">{{ $errors->first('lastname') }}</span>
-                    @endif
-                    <input type="text" name="lastname" placeholder="Lastname" value="{{ old('lastname') }}"  @if ($errors->has('lastname')) class="error" @endif>
-                    @if($errors->has('email'))
-                        <span class="warning">{{ $errors->first('email') }}</span>
-                    @endif
-                    <input type="text" name="email" placeholder="Email" value="{{ old('email') }}"  @if ($errors->has('email')) class="error" @endif>
+                    @error('lastname')<span class="warning">{{ $message }}</span>@enderror
+                    <input type="text" name="lastname" placeholder="Lastname" value="{{ old('lastname') }}"  @error('lastname') class="error" @enderror>
+                    @error('email')<span class="warning">{{ $message }}</span>@enderror
+                    <input type="text" name="email" placeholder="Email" value="{{ old('email') }}"  @error('email') class="error" @enderror>
                     <button class="button" type="submit" name="submit">Add</button>
                 </form>
             </div>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,6 @@ Route::controller(ParkingController::class)->group(function(){
     Route::delete('/destroy/{id}', 'destroy')->name('destroy');
 });
 
-Route::get('/new-user', [UsuarioController::class, 'newUser'])->name('new-user');
-Route::get('/assign-user', [UsuarioController::class, 'assignUser'])->name('assign-user');
-Route::post('/store-user', [UsuarioController::class, 'storeUser'])->name('store-user');
+Route::get('/new-user', [UserController::class, 'newUser'])->name('new-user');
+Route::get('/assign-user', [UserController::class, 'assignUser'])->name('assign-user');
+Route::post('/store-user', [UserController::class, 'storeUser'])->name('store-user');

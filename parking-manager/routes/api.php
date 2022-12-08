@@ -1,9 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Parking;
-use App\Models\Usuario;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +15,15 @@ use App\Models\Usuario;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('current-parkings', function() {
-    return Parking::all();
-});
-
 Route::get('users', function() {
-    return Usuario::all();
+    $query = User::with('parkings')->orderBy('lastname', 'asc')->get();
+    return $query->toJson(); // neccesary toJson() ??
+});
+
+Route::get('users/{id}', function($id) {
+    return User::find($id);
+});
+
+Route::get('parkings', function() {
+    return Parking::orderBy('created_at', 'desc')->limit(10)->get();
 });

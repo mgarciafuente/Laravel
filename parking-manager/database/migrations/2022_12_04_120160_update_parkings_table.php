@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('parkings', function (Blueprint $table) {
-            $table->unsignedBigInteger('userId')->nullable()->change();
-            $table->foreign('userId')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade')->change();
-            $table->renameColumn('userId', 'user_id');
+            $table->unsignedBigInteger('user_id')->nullable()->change();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade')->change();
         });
     }
 };

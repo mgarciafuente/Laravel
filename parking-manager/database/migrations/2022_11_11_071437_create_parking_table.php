@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('plate');
             $table->string('brand');
             $table->string('model');
-            $table->integer('userId');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

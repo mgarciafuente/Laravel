@@ -13,10 +13,23 @@ function init() {
     navul = document.getElementsByClassName('navul')[0];
     menu.addEventListener('click', menuFunction);
     closed = true;
+    addGoBlackFunctionToSelects();
 }
 
 function removeError() {
     this.classList.remove("error");
+}
+
+function addGoBlackFunctionToSelects() {
+    var selects = document.getElementsByTagName("select");
+    for (let i=0; i<selects.length; i++) {
+        selects[i].addEventListener("change", goBlack);
+        
+    }
+}
+
+function goBlack() {
+    this.classList.add("gone-black")
 }
 
 function menuFunction() {

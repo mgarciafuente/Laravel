@@ -9,10 +9,14 @@
             <div class="content">
                 <form action="{{ route('show-search') }}" method="post">
                     @csrf
-                    @if($errors->has('search'))
-                        <span class="warning">{{ $errors->first('search') }} </span>
-                    @endif
-                    <input type="text" name="search" placeholder="Find a parking!" value="{{ old('name') }}"  @if ($errors->has('search')) class="error" @endif>
+                    <input type="text" name="search" placeholder="Find a parking!" value="{{ old('name') }}"  @error('search') class="error" @enderror>
+                    <input type="date" name="date" placeholder="Select a date...">
+                    <select name="user">
+                        <option disabled selected>Select a user</option>
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+                    </select>
                     <button class="button" type="submit" name="submit">Find</button>
                 </form>
             </div>

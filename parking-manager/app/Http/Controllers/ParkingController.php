@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parking;
-use App\Models\Usuario;
+use App\Models\User;
+use App\Http\Requests\StoreParking;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ParkingController extends Controller
 {
@@ -27,25 +28,16 @@ class ParkingController extends Controller
 
     public function search()
     {
-        return view('search');
+        return view('search')->with(['users' => User::all()]);
     }
 
-    public function store(Request $request)
+    public function store(StoreParking $request)
     {
-        $this->validate($request, [
-            "plate" => "required|min:1",
-            "brand" => "required|min:1",
-            "model" => "required|min:1",
-        ],
-        [
-            'plate.required'=> 'A plate is required. ', // custom message
-            'brand.required'=> 'A brand is required. ',
-            'model.required'=> 'A model is required. ', 
-         ]);
+        $validated = $request->validated();
 
-        $plate = $request->input('plate');  
-        $brand = $request->input('brand');  
-        $model = $request->input('model');
+        $plate = $validated['plate'];  
+        $brand = $validated['brand'];  
+        $model = $validated['model'];
         
         Parking::create(['plate' => $plate, 'brand' => $brand, 'model' => $model]);
         return redirect(route('index'));
@@ -53,14 +45,9 @@ class ParkingController extends Controller
 
     public function show(Request $request)
     {
-        $this->validate($request, [
-            "search" => "required|min:1",
-        ],
-        [
-            'search.required'=> 'Write something...', // custom message
-         ]);
         $search = $request->input('search');
-        $parkings = DB::table('parkings')
+        $date = $request->input('date');
+        $parkings = Parking::whereDate('created_at', '=', $date)
             ->where('plate', 'LIKE', "%$search%")
             ->orWhere('brand', 'LIKE', "%$search%")
             ->orWhere('model', 'LIKE', "%$search%")
@@ -73,7 +60,7 @@ class ParkingController extends Controller
         $carId = $request->input('car');
         $userId = $request->input('user');
 
-        DB::table('parkings')->where('id', $carId)->update(['user_id' => $userId]);
+        Parking::where('id', $carId)->update(['user_id' => $userId]);
 
         return redirect(route('index'));
     }

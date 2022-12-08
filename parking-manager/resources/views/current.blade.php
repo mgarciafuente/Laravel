@@ -22,7 +22,7 @@
                             <td>{{ $parking->plate }}</td>
                             <td>{{ $parking->brand }}</td>
                             <td>{{ $parking->model }}</td>
-                            <td>{{ $parking->user }}</td>
+                            <td>{{ $parking->user->name ?? ""}}</td>
                             <td>@include('includes/delete', ['text' => 'Delete'])</td>
                         </tr>
                     @empty

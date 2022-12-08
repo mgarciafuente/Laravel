@@ -261,6 +261,9 @@ input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:fo
     border-color: rgb(165,165,165);
     color: white;
 }
+.gone-black {
+    color: rgb(30,30,30);
+}
 footer {
     border-top: 1px solid rgb(230,230,230);
     font-size: 12px;

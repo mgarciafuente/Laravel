@@ -13,6 +13,7 @@
                             <th>Plate</th>
                             <th>Brand</th>
                             <th>Model</th>
+                            <th>User</th>
                             <th></th>
                         </tr>
                     @endif
@@ -21,6 +22,7 @@
                             <td>{{ $parking->plate }}</td>
                             <td>{{ $parking->brand }}</td>
                             <td>{{ $parking->model }}</td>
+                            <td>{{ $parking->user->name ?? "" }}</td>
                             <td>@include('includes/delete', ['text' => 'Delete'])</td>
                         </tr>
                     @empty

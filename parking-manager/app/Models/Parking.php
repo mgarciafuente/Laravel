@@ -17,7 +17,7 @@ class Parking extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\Usuario', 'user_id');
-        // al no poner el nombre del campo, es 'usuario_id'
+        return $this->belongsTo('App\Models\User', 'user_id');
+        // al no poner el nombre del campo, es 'user_id'
     }
 }
