@@ -65,6 +65,7 @@ header a {
     color: rgb(30,30,30);
 }
 h1 {
+    font-size: 24px;
     font-weight: 500;
     letter-spacing: -1px;
     line-height: 0.75;
@@ -73,7 +74,7 @@ h2 {
     color: rgb(30,30,30);
     cursor: default;
     background-color: rgb(230,230,230);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     padding: 8px 32px;
 }
@@ -83,7 +84,7 @@ p {
 header {
     background-color: white;
     border-bottom: 1px solid rgb(230,230,230);
-    height: 64px;
+    height: 48px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -130,6 +131,7 @@ form {
 .warning {
     animation: fade .3s forwards .6s;
     color: rgb(230, 80, 80);
+    display: block;
     font-size: 12px;
     line-height: 24px;
     opacity: 0;
@@ -141,7 +143,7 @@ form {
     opacity: 0;
 }
 .error {
-    border-color:rgb(230, 80, 80);
+    border-color:rgb(230,135,135);
 }
 .delete {
     background-color: rgb(230, 80, 80);
@@ -194,6 +196,8 @@ table th {
 }
 .content tr td {
     padding: 8px 0;
+    line-height: 1;
+    font-size: 12px;
 }
 .content tr td:last-child {
     text-align: right;
@@ -214,12 +218,12 @@ input, select, .button, .homeul ul li a, #button2 {
     width: 100%;
 }
 #button2 {
+    background-color: rgb(230,230,230);
     color: rgb(180,180,180);
     cursor: pointer;
 }
 #button2:hover {
     color: rgb(30,30,30);
-    border-color: rgb(165,165,165);
 }
 select {
     appearance: none;
@@ -315,15 +319,14 @@ footer p {
         cursor: pointer;
         border: 0;
         display: block;
-        height: 3px;
-        padding: 16px;
+        height: 24px;
         position: relative;
-        width: 32px;
+        width: 24px;
     }
     .line1, .line2, .line3 {
         background-color: rgb(30,30,30);
         display: block;
-        height: 2px;
+        height: 1px;
         left: 0;
         position: absolute;
         transition: .3s;
@@ -366,7 +369,7 @@ footer p {
         position: absolute;
         pointer-events: none;
         right: 0;
-        top: 47px;
+        top: 35px;
         transition: .3s;
     }
     nav ul li {

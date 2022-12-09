@@ -22,7 +22,7 @@ class StoreParking extends FormRequest
             'required'=> 'The :attribute is required.',
             'between'=> 'The :attribute must be :min/:max characters.',
             'plate.regex'=> 'The plate must be 4 numbers and 3 letters.',
-            'user.required'=> 'A user must be selected.',
+            'user.required'=> 'A user must be selected (or add a new one!).',
         ];
     }
 }

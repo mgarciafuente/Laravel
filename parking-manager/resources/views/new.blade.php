@@ -2,12 +2,19 @@
 
 @section('title', 'New parking')
 
+@php
+    $newUser = false;
+    if($errors->has('name') || $errors->has('lastname') || $errors->has('email')) {
+        $newUser = true;
+    };
+@endphp
+
 @section('content')
     <div class="cont2">
         <section>           
             <h2>New parking</h2>
             <div class="content">
-                <form action="{{ route('store') }}" method="post">
+                <form @if($newUser) action="{{ route('store2') }}" @else action="{{ route('store') }}" @endif method="post">
                     @csrf
                     @error('plate')<span class="warning">{{ $message }}</span>@enderror
                     <input type="text" name="plate" placeholder="Plate" value="{{ old('plate') }}" @error('plate') class="error" @enderror>
@@ -18,7 +25,7 @@
 
                     <span class="separator"></span>
 
-                    <div id="old-users" @if($errors->has('name') || $errors->has('lastname') || $errors->has('email')) class="d-none" @endif>
+                    <div id="old-users" @if($newUser) class="d-none" @endif>
                         @error('user')<span class="warning">{{ $message }}</span>@enderror
                         <select name="user" @error('user') class="error" @enderror>
                             <option disabled selected value="0">Select a user</option>
@@ -28,9 +35,9 @@
                         </select>
                     </div>
 
-                    <button id="button2" type="button" @if($errors->has('name') || $errors->has('lastname') || $errors->has('email')) class="d-none" @endif>New user</button>
+                    <button id="button2" type="button" @if($newUser) class="d-none" @endif>Add a new user</button>
 
-                    <div id="new-user" @if($errors->has('name') || $errors->has('lastname') || $errors->has('email')) class="d-block" @endif>
+                    <div id="new-user" @if($newUser) class="d-block" @endif>
                         @error('name') <span class="warning">{{ $message }}</span>@enderror
                         <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"  @error('name') class="error" @enderror>
                         @error('lastname')<span class="warning">{{ $message }}</span>@enderror
