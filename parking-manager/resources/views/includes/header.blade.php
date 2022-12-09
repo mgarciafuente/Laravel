@@ -12,7 +12,7 @@
                 <li><a href="{{ route('current') }}"  @if($view_name == 'current') class="disabled" @endif>Current parkings</a></li>
                 <li><a href="{{ route('search') }}"  @if($view_name == 'search') class="disabled" @endif>Search parking</a></li>
                 <li><a href="{{ route('new-user') }}"  @if($view_name == 'new-user') class="disabled" @endif>New user</a></li>
-                <li><a href="{{ route('assign-user') }}"  @if($view_name == 'assign-user') class="disabled" @endif>Assign user</a></li>
+                <!-- <li><a href="{{ route('assign-user') }}"  @if($view_name == 'assign-user') class="disabled" @endif>Assign user</a></li> -->
             </ul>
         </nav>
     @endif

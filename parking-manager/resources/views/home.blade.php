@@ -10,7 +10,7 @@
                 <li><a class="button" href="{{ route('current') }}">Current parkings</a></li>
                 <li><a class="button" href="{{ route('search') }}">Search parking</a></li>
                 <li><a class="button" href="{{ route('new-user') }}">New user</a></li>
-                <li><a class="button" href="{{ route('assign-user') }}">Assign user</a></li>
+                <!-- <li><a class="button" href="{{ route('assign-user') }}">Assign user</a></li> -->
             </ul>
         </section>
     </div>

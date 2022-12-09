@@ -10,9 +10,9 @@
                 <form action="{{ route('show-search') }}" method="post">
                     @csrf
                     <input type="text" name="search" placeholder="Find a parking!" value="{{ old('name') }}"  @error('search') class="error" @enderror>
-                    <input type="date" name="date" placeholder="Select a date...">
+                    <input type="date" class="date" name="date" placeholder="Select a date...">
                     <select name="user">
-                        <option disabled selected>Select a user</option>
+                        <option disabled selected value="0">Select a user</option>
                         @foreach($users as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach

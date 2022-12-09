@@ -23,13 +23,12 @@ html, body{
     background-color: rgb(250,250,250);
     color: rgb(30,30,30);
     font: 16px/32px 'Raleway' ,sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-y: overlay;
     width: 100%;
-    color: rgb
 }
 .main {
     animation: fade .3s forwards .3s;
@@ -106,7 +105,7 @@ nav ul {
 }
 nav ul li {
     list-style-type: none;
-    margin-left: 16px;
+    margin-left: 32px;
 }
 nav ul li a {
     padding: 16px 0;
@@ -186,7 +185,7 @@ table th {
     color: rgb(180,180,180);
     border-bottom: 1px solid rgb(230,230,230);
     font-size: 12px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: left;
 }
 .content {
@@ -202,17 +201,25 @@ table th {
 .content tr:not(:last-child) td {
     border-bottom: 1px solid rgb(230,230,230);
 }
-input, select, .button, .homeul ul li a {
+input, select, .button, .homeul ul li a, #button2 {
     background-color: white;
     border: 1px solid rgb(230,230,230);
     border-radius: 2px;
     font: 16px/32px 'Raleway' ,sans-serif !important;
-    font-weight: 300;
+    font-weight: 400;
     height: 48px;
     margin: 8px 0;
     padding: 7px 16px;
     transition: .3s;
     width: 100%;
+}
+#button2 {
+    color: rgb(180,180,180);
+    cursor: pointer;
+}
+#button2:hover {
+    color: rgb(30,30,30);
+    border-color: rgb(165,165,165);
 }
 select {
     appearance: none;
@@ -226,9 +233,6 @@ select {
     background-position-y: 8px;
     padding-right: 48px;
 }
-.gone-black {
-    color: rgb(30,30,30);
-}
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -239,9 +243,16 @@ input:-internal-autofill-selected {
 input:focus, select:focus {
     border-color: rgb(180,180,180);
 }
-input::placeholder {
+input::placeholder, .date, select {
     color: rgb(180,180,180);
-    font-weight: 300;
+    font-weight: 400;
+}
+.gone-black {
+    color: rgb(30,30,30);
+}
+::-webkit-calendar-picker-indicator {
+    transform: scale(0.8) translate(2px, 0);
+    opacity: 0.4;
 }
 .button {
     display: inline-block;
@@ -254,15 +265,30 @@ input[type="submit"], .button {
     background-color: rgb(180,180,180);
     border-color: rgb(180,180,180);
     font-weight: 500 !important; 
-    margin: 8px  0;
+    margin: 16px  0 8px 0;
 }
 input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus, .button:hover, .button:active, .button:focus {
     background-color: rgb(165,165,165);
     border-color: rgb(165,165,165);
     color: white;
 }
-.gone-black {
-    color: rgb(30,30,30);
+.separator {
+    margin: 8px auto;
+    height: 1px;
+    width: 50%;
+    background-color: rgb(230,230,230);
+}
+#new-user {
+    display: none;
+}
+#new-user.d-block {
+    display: block;
+}
+#old-users.d-none {
+    display: none;
+}
+#button2.d-none {
+    display: none;
 }
 footer {
     border-top: 1px solid rgb(230,230,230);

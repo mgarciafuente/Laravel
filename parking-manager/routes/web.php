@@ -22,6 +22,7 @@ Route::controller(ParkingController::class)->group(function(){
     Route::get('/search-parking', 'search')->name('search');
     Route::post('/show-search', 'show')->name('show-search');
     Route::post('/store', 'store')->name('store');
+    Route::post('/store2', 'store2')->name('store2');
     Route::put('/store-assigment', 'storeAssigment')->name('store-assigment');
     Route::delete('/destroy/{id}', 'destroy')->name('destroy');
 });
